@@ -1,10 +1,13 @@
 package tn.esprit.projet1.Services;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.projet1.Repositories.BlocRepo;
 import tn.esprit.projet1.entity.Bloc;
 
 import java.util.List;
-
+@Service
+@AllArgsConstructor
 public class BlocServiceImpl implements IBlocService{
     BlocRepo blocRepo;
     @Override
