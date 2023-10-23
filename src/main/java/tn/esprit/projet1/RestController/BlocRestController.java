@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.projet1.Services.IBlocService;
 import tn.esprit.projet1.entity.Bloc;
-import tn.esprit.projet1.entity.Foyer;
 
 
 import java.util.List;
@@ -14,12 +13,26 @@ import java.util.List;
 public class BlocRestController {
     IBlocService iBlocService;
 
-    @GetMapping("/retrieve/{id}")
-    Bloc retrieveBlocs(@PathVariable("id") long idBloc) {
-        return iBlocService.retrieveBloc(idBloc);
-    }
+
 @PutMapping("/update")
     Bloc updateBloc(@RequestBody Bloc bloc) {
         return iBlocService.updateBloc(bloc);
     }
+
+@PostMapping("/addBloc")
+    Bloc addBloc(@RequestBody Bloc bloc) {
+        return iBlocService.addBloc(bloc);
+    }
+
+    @GetMapping("/retreives")
+    List<Bloc> retrieveBlocs() {
+        return iBlocService.retrieveBlocs();
+    }
+
+    @DeleteMapping("/deletebloc/{idBloc}")
+    void removeBloc(@PathVariable long idBloc) {
+        iBlocService.removeBloc(idBloc);
+    }
+
+
 }
