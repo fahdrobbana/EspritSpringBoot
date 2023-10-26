@@ -1,10 +1,13 @@
 package tn.esprit.projet1.Services;
 
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import tn.esprit.projet1.Repositories.UniversiteRepo;
 import tn.esprit.projet1.entity.Universite;
 
 import java.util.List;
-
+@Service
+@AllArgsConstructor
 public class UniversiteServiceImpl implements IUniversiteService{
     UniversiteRepo universiteRepo;
     @Override
