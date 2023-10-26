@@ -1,10 +1,7 @@
 package tn.esprit.projet1.RestController;
 
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import tn.esprit.projet1.Services.IEtudiantService;
 import tn.esprit.projet1.entity.Etudiant;
 
@@ -24,4 +21,19 @@ public class EtudiantRestController {
     List<Etudiant> addEtudiants(@RequestBody List<Etudiant> etudiants) {
         return iEtudiantService.addEtudiants(etudiants);
     }
+@PutMapping("/updatestudent")
+    Etudiant updateEtudiant(@RequestBody Etudiant e) {
+        return iEtudiantService.updateEtudiant(e);
+    }
+@GetMapping("/retrievestudent/{id}")
+    Etudiant retrieveEtudiant(@PathVariable("id") long idEtudiant ) {
+        return iEtudiantService.retrieveEtudiant(idEtudiant);
+    }
+
+    void removeEtudiant(long idEtudiant) {
+        iEtudiantService.removeEtudiant(idEtudiant);
+    }
+
+
+
 }
